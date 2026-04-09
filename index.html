@@ -1,0 +1,1787 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>【パワアド】タテレスキュアアカデミー 完全攻略ガイド</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #f5f7fa;
+    --bg-card: #ffffff;
+    --primary: #2563eb;
+    --primary-light: #3b82f6;
+    --primary-dark: #1d4ed8;
+    --accent: #f59e0b;
+    --accent-light: #fbbf24;
+    --accent-dark: #d97706;
+    --text: #1e293b;
+    --text-sub: #64748b;
+    --text-light: #94a3b8;
+    --border: #e2e8f0;
+    --border-accent: #dbeafe;
+    --success: #16a34a;
+    --success-bg: #f0fdf4;
+    --warning: #ea580c;
+    --warning-bg: #fff7ed;
+    --danger: #dc2626;
+    --danger-bg: #fef2f2;
+    --info: #2563eb;
+    --info-bg: #eff6ff;
+    --tank-blue: #2563eb;
+    --healer-green: #16a34a;
+    --girlfriend-pink: #db2777;
+    --purple: #7c3aed;
+    --shadow-sm: 0 1px 3px rgba(0,0,0,0.06);
+    --shadow-md: 0 4px 12px rgba(0,0,0,0.08);
+    --shadow-lg: 0 8px 24px rgba(0,0,0,0.1);
+    --radius: 12px;
+    --radius-sm: 8px;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+
+  body {
+    font-family: 'Noto Sans JP', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.8;
+    font-size: 1rem;
+  }
+
+  /* ===== SCROLLBAR ===== */
+  ::-webkit-scrollbar { width: 6px; height: 6px; }
+  ::-webkit-scrollbar-track { background: var(--bg); }
+  ::-webkit-scrollbar-thumb { background: var(--text-light); border-radius: 3px; }
+  ::-webkit-scrollbar-thumb:hover { background: var(--text-sub); }
+
+  /* ===== HERO ===== */
+  .hero {
+    text-align: center;
+    padding: 3rem 1.25rem 2.5rem;
+    background: linear-gradient(135deg, #1e40af 0%, #2563eb 40%, #3b82f6 100%);
+    color: #fff;
+  }
+  .hero h1 {
+    font-size: 1.75rem;
+    font-weight: 900;
+    line-height: 1.3;
+    margin-bottom: 0.5rem;
+    letter-spacing: 0.02em;
+  }
+  .hero .subtitle {
+    font-size: 0.95rem;
+    opacity: 0.85;
+    font-weight: 500;
+    margin-bottom: 0.75rem;
+  }
+  .hero .badge {
+    display: inline-block;
+    background: var(--accent);
+    color: #1a1408;
+    padding: 0.3rem 1.25rem;
+    border-radius: 2rem;
+    font-size: 0.8rem;
+    font-weight: 700;
+  }
+
+  /* ===== PILL NAV ===== */
+  .pill-nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: var(--bg-card);
+    border-bottom: 1px solid var(--border);
+    box-shadow: var(--shadow-sm);
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+  .pill-nav::-webkit-scrollbar { display: none; }
+  .pill-nav-inner {
+    display: flex;
+    gap: 0.5rem;
+    padding: 0.625rem 1rem;
+    max-width: 720px;
+    margin: 0 auto;
+    white-space: nowrap;
+  }
+  .pill-nav a {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    padding: 0.4rem 0.85rem;
+    border-radius: 2rem;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--text-sub);
+    text-decoration: none;
+    background: var(--bg);
+    border: 1px solid var(--border);
+    transition: all 0.2s;
+    min-height: 44px;
+    flex-shrink: 0;
+  }
+  .pill-nav a:hover, .pill-nav a:active {
+    color: var(--primary);
+    background: var(--border-accent);
+    border-color: var(--primary-light);
+  }
+  .pill-nav .pill-num {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 1.25rem;
+    height: 1.25rem;
+    border-radius: 50%;
+    background: var(--primary);
+    color: #fff;
+    font-size: 0.65rem;
+    font-weight: 800;
+    flex-shrink: 0;
+  }
+
+  /* ===== CONTAINER ===== */
+  .container {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 1.5rem 1rem;
+  }
+
+  /* ===== SECTION ===== */
+  .section {
+    margin-bottom: 2.5rem;
+  }
+  .section-title {
+    font-size: 1.3rem;
+    color: var(--text);
+    font-weight: 700;
+    padding-bottom: 0.625rem;
+    margin-bottom: 1rem;
+    border-bottom: 3px solid var(--primary);
+    display: flex;
+    align-items: center;
+    gap: 0.625rem;
+  }
+  .section-title .num {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--primary);
+    color: #fff;
+    width: 2rem;
+    height: 2rem;
+    border-radius: var(--radius-sm);
+    font-size: 0.75rem;
+    font-weight: 900;
+    flex-shrink: 0;
+  }
+
+  /* ===== CARD ===== */
+  .card {
+    background: var(--bg-card);
+    border-radius: var(--radius);
+    padding: 1.25rem;
+    margin-bottom: 1rem;
+    border: 1px solid var(--border);
+    box-shadow: var(--shadow-sm);
+  }
+  .card h3 {
+    color: var(--primary);
+    font-size: 1.05rem;
+    margin-bottom: 0.75rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--border);
+  }
+  .card p { margin-bottom: 0.625rem; }
+  .card ul, .card ol { margin-left: 1.25rem; }
+  .card li { margin-bottom: 0.25rem; }
+
+  /* ===== HIGHLIGHT BOXES ===== */
+  .highlight {
+    border-radius: var(--radius-sm);
+    padding: 1rem 1.125rem;
+    margin: 1rem 0;
+    border-left: 4px solid;
+  }
+  .highlight strong { display: block; margin-bottom: 0.375rem; }
+  .highlight-important {
+    background: #fffbeb;
+    border-color: var(--accent);
+  }
+  .highlight-important strong { color: var(--accent-dark); }
+  .highlight-tip {
+    background: var(--success-bg);
+    border-color: var(--success);
+  }
+  .highlight-tip strong { color: var(--success); }
+  .highlight-warning {
+    background: var(--danger-bg);
+    border-color: var(--danger);
+  }
+  .highlight-warning strong { color: var(--danger); }
+  .highlight-info {
+    background: var(--info-bg);
+    border-color: var(--info);
+  }
+  .highlight-info strong { color: var(--info); }
+
+  /* ===== TABLE ===== */
+  .table-responsive {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    margin: 1rem 0;
+    border-radius: var(--radius-sm);
+    border: 1px solid var(--border);
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.875rem;
+    min-width: 400px;
+  }
+  th {
+    background: var(--info-bg);
+    color: var(--primary);
+    padding: 0.625rem 0.75rem;
+    text-align: left;
+    font-weight: 600;
+    border-bottom: 2px solid var(--primary);
+    white-space: nowrap;
+  }
+  td {
+    padding: 0.625rem 0.75rem;
+    border-bottom: 1px solid var(--border);
+  }
+  tr:nth-child(even) { background: #f8fafc; }
+  tr:hover { background: var(--info-bg); }
+  tr.row-highlight { background: #fffbeb !important; }
+
+  /* ===== CHARACTER CARDS ===== */
+  .char-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    margin: 1rem 0;
+  }
+  .char-card {
+    background: var(--bg-card);
+    border-radius: var(--radius);
+    overflow: hidden;
+    border: 1px solid var(--border);
+    box-shadow: var(--shadow-sm);
+  }
+  .char-card-header {
+    padding: 1rem 1.25rem;
+    color: #fff;
+    font-size: 1rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+  .char-card-header.girlfriend { background: linear-gradient(135deg, #be185d, #ec4899); }
+  .char-card-header.tank { background: linear-gradient(135deg, #1d4ed8, #3b82f6); }
+  .char-card-header.healer { background: linear-gradient(135deg, #15803d, #22c55e); }
+  .char-card-header.archer { background: linear-gradient(135deg, #a16207, #eab308); }
+  .char-card-header.alt-gf { background: linear-gradient(135deg, #86198f, #c026d3); }
+  .char-card-header.substitute { background: linear-gradient(135deg, #4338ca, #6366f1); }
+  .char-card-header .char-img {
+    width: 3.25rem;
+    height: 3.25rem;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid rgba(255,255,255,0.4);
+    flex-shrink: 0;
+  }
+  .char-card-body { padding: 1rem 1.25rem; }
+  .char-card-body .stat {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.4rem 0;
+    border-bottom: 1px dashed var(--border);
+    font-size: 0.875rem;
+  }
+  .char-card-body .stat:last-child { border-bottom: none; }
+  .char-card-body .stat-label { font-weight: 600; color: var(--text-sub); }
+  .char-card-body .stat-value { font-weight: 700; color: var(--text); }
+  .char-card-body .gold-skill {
+    margin-top: 0.75rem;
+    padding: 0.75rem 1rem;
+    background: #fffbeb;
+    border: 1px solid var(--accent);
+    border-radius: var(--radius-sm);
+  }
+  .char-card-body .gold-skill .label {
+    font-size: 0.7rem;
+    color: var(--accent-dark);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+  }
+  .char-card-body .gold-skill .name {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--accent-dark);
+  }
+  .char-card-body .gold-skill .effect {
+    font-size: 0.825rem;
+    color: var(--text-sub);
+  }
+
+  /* ===== RANK BADGES ===== */
+  .rank { display: inline-block; padding: 0.125rem 0.75rem; border-radius: 0.75rem; font-size: 0.75rem; font-weight: 700; }
+  .rank-gold { background: var(--accent); color: #1a1408; }
+  .rank-silver { background: #94a3b8; color: #fff; }
+  .rank-bronze { background: #a16207; color: #fff; }
+  .rank-rookie { background: #cbd5e1; color: #475569; }
+
+  /* ===== DECK BOX ===== */
+  .deck-box {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 1.25rem;
+    margin: 1rem 0;
+    box-shadow: var(--shadow-sm);
+  }
+  .deck-box h4 {
+    color: var(--primary);
+    margin-bottom: 0.75rem;
+    font-size: 1rem;
+  }
+  .deck-slots {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.5rem;
+  }
+  .deck-slot {
+    background: var(--bg);
+    border-radius: var(--radius-sm);
+    padding: 0.625rem 0.5rem;
+    text-align: center;
+    border: 2px solid var(--border);
+  }
+  .deck-slot .name { font-weight: 700; font-size: 0.85rem; color: var(--text); }
+  .deck-slot .role { font-size: 0.7rem; color: var(--text-sub); margin-top: 0.125rem; }
+  .deck-slot-gf { border-color: var(--girlfriend-pink) !important; }
+  .deck-slot-gf .name { color: var(--girlfriend-pink); }
+  .deck-slot-tank { border-color: var(--tank-blue) !important; }
+  .deck-slot-tank .name { color: var(--tank-blue); }
+  .deck-slot-healer { border-color: var(--healer-green) !important; }
+  .deck-slot-healer .name { color: var(--healer-green); }
+
+  /* ===== TIMELINE ===== */
+  .timeline {
+    position: relative;
+    padding-left: 2rem;
+    margin: 1rem 0;
+  }
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 0.625rem;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: linear-gradient(to bottom, var(--primary), var(--border), var(--primary));
+  }
+  .timeline-item {
+    position: relative;
+    margin-bottom: 1rem;
+    padding: 0.875rem 1rem;
+    background: var(--bg-card);
+    border-radius: var(--radius-sm);
+    border: 1px solid var(--border);
+    box-shadow: var(--shadow-sm);
+  }
+  .timeline-item::before {
+    content: '';
+    position: absolute;
+    left: -1.625rem;
+    top: 1rem;
+    width: 0.625rem;
+    height: 0.625rem;
+    background: var(--primary);
+    border-radius: 50%;
+    border: 2px solid var(--bg);
+    box-shadow: 0 0 0 2px var(--primary);
+  }
+  .timeline-item.critical::before {
+    background: var(--danger);
+    box-shadow: 0 0 0 2px var(--danger);
+  }
+  .timeline-item .time {
+    font-weight: 700;
+    color: var(--primary);
+    font-size: 0.875rem;
+  }
+  .timeline-item.critical .time { color: var(--danger); }
+  .timeline-item .event { margin-top: 0.25rem; font-size: 0.9rem; }
+
+  /* ===== FLOW DIAGRAM ===== */
+  .flow-diagram {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+    margin: 1.5rem 0;
+  }
+  .flow-step {
+    background: var(--bg-card);
+    border: 2px solid var(--border);
+    border-radius: var(--radius-sm);
+    padding: 0.875rem 1.25rem;
+    text-align: center;
+    width: 100%;
+    max-width: 280px;
+    font-weight: 600;
+    font-size: 0.875rem;
+    position: relative;
+  }
+  .flow-step .step-num {
+    position: absolute;
+    top: -0.625rem;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--primary);
+    color: #fff;
+    font-size: 0.65rem;
+    font-weight: 900;
+    width: 1.25rem;
+    height: 1.25rem;
+    line-height: 1.25rem;
+    border-radius: 50%;
+    text-align: center;
+  }
+  .flow-arrow-wrap {
+    display: flex;
+    align-items: center;
+    padding: 0.125rem 0;
+  }
+  .flow-arrow-wrap svg {
+    width: 1.5rem;
+    height: 1.5rem;
+    transform: rotate(90deg);
+  }
+  .flow-arrow-wrap svg path { fill: var(--primary); }
+
+  /* ===== SECTION TABS ===== */
+  .section-tabs {
+    display: flex;
+    gap: 0;
+    border-radius: var(--radius-sm) var(--radius-sm) 0 0;
+    overflow: hidden;
+  }
+  .section-tab {
+    flex: 1;
+    text-align: center;
+    padding: 0.625rem 0.375rem;
+    font-weight: 700;
+    font-size: 0.75rem;
+    color: #fff;
+    cursor: default;
+  }
+  .section-tab:nth-child(1) { background: linear-gradient(135deg, #15803d, #22c55e); }
+  .section-tab:nth-child(2) { background: linear-gradient(135deg, #1d4ed8, #3b82f6); }
+  .section-tab:nth-child(3) { background: linear-gradient(135deg, #6d28d9, #8b5cf6); }
+  .section-tab:nth-child(4) { background: linear-gradient(135deg, #b91c1c, #ef4444); }
+  .section-content {
+    border: 1px solid var(--border);
+    border-top: none;
+    border-radius: 0 0 var(--radius) var(--radius);
+    padding: 1.25rem;
+    background: var(--bg-card);
+  }
+
+  /* ===== GAUGE ===== */
+  .gauge-bar {
+    height: 1.5rem;
+    background: var(--border);
+    border-radius: 0.75rem;
+    overflow: hidden;
+    margin: 0.5rem 0;
+    position: relative;
+  }
+  .gauge-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--primary-dark), var(--primary), var(--primary-light));
+    border-radius: 0.75rem;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding-right: 0.625rem;
+    color: #fff;
+    font-weight: 700;
+    font-size: 0.7rem;
+  }
+
+  /* ===== PRIORITY LIST ===== */
+  .priority-list {
+    list-style: none;
+    counter-reset: priority;
+  }
+  .priority-list li {
+    counter-increment: priority;
+    padding: 0.75rem 1rem 0.75rem 3rem;
+    margin-bottom: 0.5rem;
+    background: var(--bg-card);
+    border-radius: var(--radius-sm);
+    border: 1px solid var(--border);
+    position: relative;
+    font-size: 0.9rem;
+  }
+  .priority-list li::before {
+    content: counter(priority);
+    position: absolute;
+    left: 0.75rem;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 1.625rem;
+    height: 1.625rem;
+    line-height: 1.625rem;
+    text-align: center;
+    background: var(--primary);
+    color: #fff;
+    border-radius: 50%;
+    font-weight: 900;
+    font-size: 0.75rem;
+  }
+
+  /* ===== FOOTER ===== */
+  .footer {
+    background: var(--bg-card);
+    border-top: 1px solid var(--border);
+    color: var(--text-sub);
+    text-align: center;
+    padding: 1.5rem 1.25rem;
+    font-size: 0.8rem;
+    line-height: 1.7;
+  }
+  .footer .copyright {
+    margin-top: 0.75rem;
+    padding-top: 0.75rem;
+    border-top: 1px solid var(--border);
+    font-size: 0.75rem;
+  }
+
+  /* ===== BACK TO TOP ===== */
+  .back-to-top {
+    position: fixed;
+    bottom: 1.25rem;
+    right: 1.25rem;
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+    background: var(--primary);
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: var(--shadow-lg);
+    z-index: 900;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s, visibility 0.3s, transform 0.2s;
+    min-width: 44px;
+    min-height: 44px;
+  }
+  .back-to-top.visible {
+    opacity: 1;
+    visibility: visible;
+  }
+  .back-to-top:hover, .back-to-top:active {
+    transform: translateY(-2px);
+    background: var(--primary-dark);
+  }
+
+  /* ===== PRINT ===== */
+  @media print {
+    .pill-nav, .back-to-top { display: none !important; }
+    .hero { padding: 1.5rem 1rem; }
+    .container { padding: 1rem; }
+    .card, .char-card, .timeline-item { break-inside: avoid; }
+    body { font-size: 10pt; color: #000; background: #fff; }
+  }
+
+  /* ===== RESPONSIVE (tablet+) ===== */
+  @media (min-width: 640px) {
+    .hero h1 { font-size: 2.2rem; }
+    .hero { padding: 4rem 2rem 3rem; }
+    .container { padding: 2rem 1.5rem; }
+    .char-grid { grid-template-columns: repeat(2, 1fr); }
+    .deck-slots { grid-template-columns: repeat(3, 1fr); }
+    .flow-diagram { flex-direction: row; flex-wrap: wrap; justify-content: center; }
+    .flow-step { width: auto; min-width: 140px; max-width: none; }
+    .flow-arrow-wrap svg { transform: none; }
+    .section-tab { font-size: 0.85rem; padding: 0.75rem 0.5rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- Hero -->
+<div class="hero">
+  <h1>タテレスキュアアカデミー<br>完全攻略ガイド</h1>
+  <p class="subtitle">パワプロアドベンチャーズ（パワアド）新サクセス徹底解説</p>
+  <span class="badge">2026年4月8日 配信開始</span>
+</div>
+
+<!-- Pill Navigation -->
+<nav class="pill-nav">
+  <div class="pill-nav-inner">
+    <a href="#overview"><span class="pill-num">1</span>概要</a>
+    <a href="#unlock"><span class="pill-num">2</span>解放条件</a>
+    <a href="#jobs"><span class="pill-num">3</span>ジョブ</a>
+    <a href="#system"><span class="pill-num">4</span>依頼</a>
+    <a href="#rank"><span class="pill-num">5</span>ランク</a>
+    <a href="#cycle"><span class="pill-num">6</span>育成</a>
+    <a href="#sections"><span class="pill-num">7</span>攻略</a>
+    <a href="#events"><span class="pill-num">8</span>イベント</a>
+    <a href="#characters"><span class="pill-num">9</span>キャラ</a>
+    <a href="#decks"><span class="pill-num">10</span>デッキ</a>
+    <a href="#gold"><span class="pill-num">11</span>金特</a>
+    <a href="#tips"><span class="pill-num">12</span>Tips</a>
+    <a href="#gacha"><span class="pill-num">13</span>ガチャ</a>
+  </div>
+</nav>
+
+<!-- Main Content -->
+<div class="container">
+
+  <!-- 1. Overview -->
+  <div class="section" id="overview">
+    <h2 class="section-title"><span class="num">1</span>シナリオ概要</h2>
+    <div class="card">
+      <p>「タテレスキュアアカデミー」は、パワプロアドベンチャーズ（パワアド）の<strong>第2弾サクセスシナリオ</strong>です。冒険者養成学校を舞台に、シエルタ団の臨時団員として活動するストーリーが展開されます。</p>
+
+      <div class="highlight highlight-info">
+        <strong>パワフルアカデミーとの違い</strong>
+        従来の「パワフルアカデミー」とほぼ同じ体力回復イベントタイミングを持ちますが、<strong>ゼレアスとの特訓がない</strong>点、<strong>教本システムが未実装</strong>の可能性がある点が大きな違いです。代わりに「依頼ゲージ」を中心とした独自の育成サイクルが構築されています。
+      </div>
+
+      <div class="highlight highlight-important">
+        <strong>後半の爆発ギミックがない</strong>
+        ゼリウスのような後半一気に逆転できるギミックがないため、<strong>セクション1から丁寧に立ち回ること</strong>が重要です。序盤の積み重ねがそのまま最終評価に直結します。
+      </div>
+
+      <h3>育成可能ジョブの住み分け</h3>
+      <div class="table-responsive">
+        <table>
+          <tr>
+            <th>シナリオ</th>
+            <th>育成可能ジョブ</th>
+          </tr>
+          <tr>
+            <td><strong>タテレスキュアアカデミー</strong>（新）</td>
+            <td>重戦士、魔法使い、僧侶</td>
+          </tr>
+          <tr>
+            <td>パワフルアカデミー（旧）</td>
+            <td>剣士、弓使い、魔闘士</td>
+          </tr>
+        </table>
+      </div>
+
+      <div class="highlight highlight-tip">
+        <strong>新シナリオのメリット</strong>
+        最新環境＝高効率設計の傾向があり、タンク育成・ヒーラー育成をするなら圧倒的にこちらが有利です。ただし、怪力・魔力増強など一部スキルは旧シナリオ固有の可能性があるため、目的に応じて使い分けましょう。
+      </div>
+    </div>
+  </div>
+
+  <!-- 2. Unlock -->
+  <div class="section" id="unlock">
+    <h2 class="section-title"><span class="num">2</span>解放条件</h2>
+    <div class="card">
+      <div class="table-responsive">
+        <table>
+          <tr>
+            <th>項目</th>
+            <th>内容</th>
+          </tr>
+          <tr>
+            <td>配信日</td>
+            <td><strong>2026年4月8日（水）14:00</strong></td>
+          </tr>
+          <tr>
+            <td>解放条件</td>
+            <td>メインクエスト <strong>「2-5」クリア</strong></td>
+          </tr>
+          <tr>
+            <td>舞台設定</td>
+            <td>冒険者養成学校 / シエルタ団の臨時団員として活動</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- 3. New Jobs -->
+  <div class="section" id="jobs">
+    <h2 class="section-title"><span class="num">3</span>新ジョブ詳細</h2>
+    <div class="char-grid">
+      <div class="char-card">
+        <div class="char-card-header tank">重戦士（タンク）</div>
+        <div class="char-card-body">
+          <div class="stat">
+            <span class="stat-label">ポジション</span>
+            <span class="stat-value">前衛・中衛</span>
+          </div>
+          <div class="stat">
+            <span class="stat-label">主要ステータス</span>
+            <span class="stat-value">生命力 / 耐久力 / 精神力</span>
+          </div>
+          <div class="stat">
+            <span class="stat-label">役割</span>
+            <span class="stat-value">モンスターの攻撃から仲間を保護</span>
+          </div>
+          <div class="stat">
+            <span class="stat-label">特徴</span>
+            <span class="stat-value">高い防御力で守りを得意とする</span>
+          </div>
+          <p style="margin-top: 0.75rem; font-size: 0.85rem; color: var(--text-sub);">従来は剣士や魔闘士で代用していたタンク育成が、専門ジョブとしてより特化した形で可能に。</p>
+        </div>
+      </div>
+      <div class="char-card">
+        <div class="char-card-header healer">僧侶（ヒーラー）</div>
+        <div class="char-card-body">
+          <div class="stat">
+            <span class="stat-label">ポジション</span>
+            <span class="stat-value">中衛・後衛</span>
+          </div>
+          <div class="stat">
+            <span class="stat-label">主要ステータス</span>
+            <span class="stat-value">生命力 / 耐久力 / 魔力</span>
+          </div>
+          <div class="stat">
+            <span class="stat-label">役割</span>
+            <span class="stat-value">傷を癒し、味方を強化する</span>
+          </div>
+          <div class="stat">
+            <span class="stat-label">特徴</span>
+            <span class="stat-value">後衛からの支援・回復特化</span>
+          </div>
+          <p style="margin-top: 0.75rem; font-size: 0.85rem; color: var(--text-sub);">窮地での回復と強化が主要な役割。パーティの生存力を大幅に向上させる。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 4. Request System -->
+  <div class="section" id="system">
+    <h2 class="section-title"><span class="num">4</span>依頼システム</h2>
+    <div class="card">
+      <p>タテレスキュアアカデミーの核となるシステムです。<strong>訓練で「依頼ゲージ」を溜め、仲間と共に依頼へ挑戦</strong>して報酬（経験点・コツ）を獲得します。</p>
+
+      <h3>基本フロー</h3>
+      <div class="flow-diagram">
+        <div class="flow-step">
+          <span class="step-num">1</span>
+          訓練で<br>ゲージを溜める
+        </div>
+        <div class="flow-arrow-wrap">
+          <svg viewBox="0 0 32 20"><path d="M4 10 L22 10 L18 4 L24 10 L18 16 L22 10"/></svg>
+        </div>
+        <div class="flow-step">
+          <span class="step-num">2</span>
+          依頼に<br>仲間を編成
+        </div>
+        <div class="flow-arrow-wrap">
+          <svg viewBox="0 0 32 20"><path d="M4 10 L22 10 L18 4 L24 10 L18 16 L22 10"/></svg>
+        </div>
+        <div class="flow-step">
+          <span class="step-num">3</span>
+          依頼を<br>クリア
+        </div>
+        <div class="flow-arrow-wrap">
+          <svg viewBox="0 0 32 20"><path d="M4 10 L22 10 L18 4 L24 10 L18 16 L22 10"/></svg>
+        </div>
+        <div class="flow-step">
+          <span class="step-num">4</span>
+          経験点・コツ<br>を獲得
+        </div>
+        <div class="flow-arrow-wrap">
+          <svg viewBox="0 0 32 20"><path d="M4 10 L22 10 L18 4 L24 10 L18 16 L22 10"/></svg>
+        </div>
+        <div class="flow-step">
+          <span class="step-num">5</span>
+          ランクアップで<br>効率UP
+        </div>
+      </div>
+
+      <h3>依頼ゲージ獲得量（実測値）</h3>
+      <div class="table-responsive">
+        <table>
+          <tr>
+            <th>行動</th>
+            <th>獲得ポイント</th>
+            <th>備考</th>
+          </tr>
+          <tr>
+            <td>無関係キャラと訓練</td>
+            <td><strong>1 pt</strong></td>
+            <td>シナリオ外キャラは効率が非常に悪い</td>
+          </tr>
+          <tr>
+            <td>タテレス関連キャラと訓練</td>
+            <td><strong>3 pt</strong></td>
+            <td>特効キャラ基本値</td>
+          </tr>
+          <tr>
+            <td>ゴールドランク仲間と訓練</td>
+            <td><strong>7 pt</strong></td>
+            <td>ランクアップで効率大幅向上</td>
+          </tr>
+          <tr class="row-highlight">
+            <td><strong>エシュナと一緒に訓練</strong></td>
+            <td><strong style="color:var(--danger);">15 pt</strong></td>
+            <td>通常の5倍！彼女特効が圧倒的</td>
+          </tr>
+          <tr class="row-highlight">
+            <td><strong>エシュナとデート</strong></td>
+            <td><strong style="color:var(--danger);">約35 pt</strong></td>
+            <td>最高効率＋体力回復の一石二鳥</td>
+          </tr>
+        </table>
+      </div>
+
+      <div class="highlight highlight-warning">
+        <strong>重要：依頼後のクールダウン</strong>
+        <ul style="margin-left:1.25rem; margin-top:0.25rem;">
+          <li><strong>学園（特効）キャラ：5ターン</strong>依頼に出せない</li>
+          <li><strong>非学園キャラ：10ターン</strong>依頼に出せない</li>
+        </ul>
+        特効キャラはクールダウンが半分！デッキにはバランスよくジョブを散らし、ローテーションで回すのが安定への近道です。
+      </div>
+
+      <h3>依頼の発生条件</h3>
+      <div class="table-responsive">
+        <table>
+          <tr>
+            <th>条件</th>
+            <th>獲得依頼数</th>
+            <th>備考</th>
+          </tr>
+          <tr>
+            <td>コツイベント発生</td>
+            <td><strong>1個</strong></td>
+            <td>コツイベ率アップ持ちのイベキャラが重要</td>
+          </tr>
+          <tr>
+            <td>教官のいる練習</td>
+            <td><strong>1～2個</strong></td>
+            <td>50%の確率で2つ獲得</td>
+          </tr>
+        </table>
+      </div>
+
+      <div class="highlight highlight-tip">
+        <strong>溜まった依頼は削除可能</strong>
+        依頼画面の左下から不要な依頼を削除できます。低ランク依頼を消して高ランク依頼の枠を空けましょう。
+      </div>
+
+      <h3>依頼の優先度</h3>
+      <div class="highlight highlight-important">
+        <strong>星2依頼を優先、星1は終盤にキープ</strong>
+        序盤～中盤は星2依頼を積極的にこなして実績ポイントを稼ぎましょう。星1依頼は報酬が少ないため、終盤の実績調整用にキープするのが効率的です。
+      </div>
+
+      <div class="highlight highlight-info">
+        <strong>体力管理と依頼受注のタイミング</strong>
+        <strong>体力満タン＋残り2ターン練習できる状態</strong>で依頼を受けるのが理想です。依頼成功後の2ターンボーナス中にタッグ練習を踏めるよう、体力とタイミングを逆算しましょう。
+      </div>
+
+      <h3>大成功の重要性</h3>
+      <div class="highlight highlight-warning">
+        <strong>大成功でルーキー→シルバー一気昇格が最重要！</strong>
+        大成功は経験点1.5倍に加え、<strong>救援ランクが2段階UP</strong>します。ルーキーからシルバーに一気に到達でき、その後のゲージ効率が劇的に改善します。大成功200%を狙い、<strong>タッグボーナス60%UP</strong>を獲得しましょう。
+      </div>
+
+      <div class="highlight highlight-tip">
+        <strong>強い依頼が使えない時は共感（教官）で依頼書回収</strong>
+        高ランク依頼がない時や仲間がクールダウン中の場合、教官のいる練習で依頼書を回収してストックを増やしましょう。
+      </div>
+
+      <h3>モブキャラの活用</h3>
+      <div class="highlight highlight-info">
+        <strong>モブはオールマイティではない</strong>
+        モブキャラにはそれぞれ得意分野があります。依頼の成功率は参加キャラのステータス合計で決まるため、依頼条件に合ったステータスが高いモブを選んで使い分けましょう。イベキャラのステが低い場合、該当ステが高いモブを使う方が成功率が高いこともあります。
+      </div>
+
+      <div class="highlight highlight-tip">
+        <strong>主人公の能力を上げて依頼成功率UP</strong>
+        主人公のステータスも依頼の成功率に影響します。金スキル要件分まで能力を上げておけば、依頼成功率UPと金スキル取得の両方に貢献するため無駄になりません。
+      </div>
+
+      <h3>実績（★）システムと最高難度解放</h3>
+      <div class="highlight highlight-important">
+        <strong>★20個で最高難度依頼が解放！</strong>
+        こなした依頼のランク分だけ実績ポイント（★）が貯まります。<strong>★合計20</strong>に達すると最高難度の★5依頼が出現。これをクリアすると<strong>金特のコツ</strong>が獲得できます（パワアカの状況教本に相当）。
+      </div>
+      <div class="table-responsive">
+        <table>
+          <tr>
+            <th>依頼ランク</th>
+            <th>★獲得</th>
+            <th>報酬</th>
+          </tr>
+          <tr><td>★1～2</td><td>1～2</td><td>少量の経験点</td></tr>
+          <tr><td>★3～4</td><td>3～4</td><td>経験点＋コツ＋訓練レベルUP</td></tr>
+          <tr><td style="color:var(--accent-dark);font-weight:700;">★5（最高）</td><td style="font-weight:700;">5</td><td style="font-weight:700;">大成功で金特のコツ入手！</td></tr>
+        </table>
+      </div>
+
+      <h3>依頼ゲージのイメージ</h3>
+      <p style="font-size:0.85rem;">無関係キャラ（1pt）で訓練した場合：</p>
+      <div class="gauge-bar">
+        <div class="gauge-fill" style="width: 10%;">10%</div>
+      </div>
+      <p style="font-size:0.85rem;">エシュナ訓練（15pt）+デート（35pt）を活用：</p>
+      <div class="gauge-bar">
+        <div class="gauge-fill" style="width: 75%;">75%</div>
+      </div>
+      <p style="font-size:0.85rem;">決起会イベント発動：</p>
+      <div class="gauge-bar">
+        <div class="gauge-fill" style="width: 100%;">100% MAX!</div>
+      </div>
+
+      <h3>依頼の成功・失敗・大成功</h3>
+      <div class="table-responsive">
+        <table>
+          <tr>
+            <th>結果</th>
+            <th>効果</th>
+          </tr>
+          <tr>
+            <td>失敗</td>
+            <td>報酬ダウン</td>
+          </tr>
+          <tr>
+            <td>成功</td>
+            <td>報酬獲得＋救援ランク1UP＋タッグボーナス増加</td>
+          </tr>
+          <tr>
+            <td style="color:var(--accent-dark);font-weight:700;">大成功</td>
+            <td style="font-weight:700;">経験点1.5倍＋救援ランク2UP＋タッグ&得意練習率大幅UP</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- 5. Rescue Rank -->
+  <div class="section" id="rank">
+    <h2 class="section-title"><span class="num">5</span>救援ランクシステム</h2>
+    <div class="card">
+      <p>仲間にはそれぞれ「救援ランク」があり、ランクが高いほど依頼ゲージの獲得量が増加します。SRイベキャラはモブキャラより<strong>初期状態で1段階高い</strong>ランクからスタートします。</p>
+
+      <h3>ランク昇格</h3>
+      <div class="table-responsive">
+        <table>
+          <tr>
+            <th>ランク</th>
+            <th>ゲージ効率</th>
+            <th>昇格条件</th>
+          </tr>
+          <tr>
+            <td><span class="rank rank-rookie">ルーキー</span></td>
+            <td>低い</td>
+            <td>初期状態</td>
+          </tr>
+          <tr>
+            <td><span class="rank rank-bronze">ブロンズ</span></td>
+            <td>やや低い</td>
+            <td>依頼で成功（1段階UP）</td>
+          </tr>
+          <tr>
+            <td><span class="rank rank-silver">シルバー</span></td>
+            <td>高い</td>
+            <td>依頼で成功 or 大成功で2段階UP</td>
+          </tr>
+          <tr>
+            <td><span class="rank rank-gold">ゴールド</span></td>
+            <td>最高（7pt）</td>
+            <td>大成功で一気にここまで到達可能</td>
+          </tr>
+        </table>
+      </div>
+
+      <div class="highlight highlight-tip">
+        <strong>SRイベキャラの上限開放5以上で基本能力上昇ボーナス</strong>
+        SRイベキャラを上限開放5以上にすると、依頼成功時の基本能力上昇にボーナスがつきます。ガチャでの重ね引きが有効です。
+      </div>
+
+      <div class="highlight highlight-important">
+        <strong>ランク上げの優先度：イベキャラ集中がお得</strong>
+        色んな仲間のランクを広く上げるより、<strong>イベキャラをガッツリ上げてタッグ訓練の経験点を増やすほうが効率的</strong>です。イベキャラのランクが上がることで、タッグ練習時の経験点が直接的に増加します。
+      </div>
+    </div>
+  </div>
+
+  <!-- 6. Training Cycle -->
+  <div class="section" id="cycle">
+    <h2 class="section-title"><span class="num">6</span>育成の基本サイクル</h2>
+    <div class="card">
+      <h3>メインループ</h3>
+      <div class="flow-diagram">
+        <div class="flow-step" style="border-color: var(--success);">
+          <span class="step-num" style="background:var(--success);">1</span>
+          彼女がいる<br>訓練 &amp; デート
+        </div>
+        <div class="flow-arrow-wrap">
+          <svg viewBox="0 0 32 20"><path d="M4 10 L22 10 L18 4 L24 10 L18 16 L22 10"/></svg>
+        </div>
+        <div class="flow-step" style="border-color: var(--info);">
+          <span class="step-num" style="background:var(--info);">2</span>
+          依頼ゲージを<br>溜める
+        </div>
+        <div class="flow-arrow-wrap">
+          <svg viewBox="0 0 32 20"><path d="M4 10 L22 10 L18 4 L24 10 L18 16 L22 10"/></svg>
+        </div>
+        <div class="flow-step" style="border-color: var(--purple);">
+          <span class="step-num" style="background:var(--purple);">3</span>
+          依頼で<br>大成功を狙う
+        </div>
+        <div class="flow-arrow-wrap">
+          <svg viewBox="0 0 32 20"><path d="M4 10 L22 10 L18 4 L24 10 L18 16 L22 10"/></svg>
+        </div>
+        <div class="flow-step" style="border-color: var(--danger);">
+          <span class="step-num" style="background:var(--danger);">4</span>
+          スペシャルタッグ<br>&amp; 得意練習率UP
+        </div>
+      </div>
+
+      <div class="highlight highlight-important">
+        <strong>大成功時の2ターンボーナス</strong>
+        依頼で大成功すると、<strong>2ターンの間</strong>スペシャルタッグ効果がアップし、仲間の得意練習率も上昇します。このボーナス中に強いタッグを踏んで経験点を一気に稼ぐのが理想的な立ち回りです。
+      </div>
+
+      <h3>タッグ+依頼書セット練習</h3>
+      <div class="highlight highlight-info">
+        <strong>ボーナス中はタッグ＋依頼書回収を同時に狙う</strong>
+        コツイベントや教官のいる練習でタッグが発生する場所を選べば、経験点を稼ぎながら次の依頼書も回収できます。ボーナス2ターンを最大限活用しましょう。
+      </div>
+
+      <h3>訓練の優先度</h3>
+      <ol class="priority-list">
+        <li><strong>彼女がいる訓練</strong>：デートで40ptのゲージ獲得＋体力回復</li>
+        <li><strong>イベキャラが重なっている場所</strong>：スペシャルタッグ発生率UP（ダブルタッグ狙い）</li>
+        <li><strong>教官＋イベキャラの場所</strong>：経験点効率が良い＋依頼書回収</li>
+        <li><strong>得意訓練を固めた場所</strong>：タッグ発生時の爆発力重視</li>
+      </ol>
+
+      <h3>効率的な立ち回り</h3>
+      <p>「<strong>依頼 → 2ターン訓練 → 回復</strong>」を繰り返すことで効率よくキャラを育成可能です。成功時のスペシャルタッグボーナスで訓練ポイントが<strong>20%アップ</strong>するため、ボーナス中は積極的に訓練しましょう。</p>
+
+      <div class="highlight highlight-tip">
+        <strong>得意訓練を固める編成が強い</strong>
+        「得意訓練をバラけさせるよりも固める方が効率的」です。メイン経験点練習にイベキャラ2人を配置してダブルタッグを狙い、爆発的な経験点獲得を目指しましょう。
+      </div>
+
+      <div class="highlight highlight-warning">
+        <strong>シナリオポイントを先に埋めるべき</strong>
+        ボーナス未取得の状態で練習しても変な癖がつく可能性があります。仲間評価+10などのシナリオポイントを先に埋めてから練習に専念しましょう。右列爆走ルートで最優先取得するのが効率的です。
+      </div>
+    </div>
+  </div>
+
+  <!-- 7. Section Walkthrough -->
+  <div class="section" id="sections">
+    <h2 class="section-title"><span class="num">7</span>セクション別攻略</h2>
+
+    <div class="section-tabs">
+      <div class="section-tab">Sec.1<br><small>序盤</small></div>
+      <div class="section-tab">Sec.2<br><small>中盤前半</small></div>
+      <div class="section-tab">Sec.3<br><small>中盤後半</small></div>
+      <div class="section-tab">Sec.4<br><small>終盤</small></div>
+    </div>
+    <div class="section-content">
+      <div class="card" style="border-left: 3px solid var(--success); margin-bottom: 0.75rem;">
+        <h3 style="color: var(--success);">セクション1（序盤）：評価上げに専念</h3>
+        <p><strong>目標：</strong>編成したキャラの評価ゲージを貯める</p>
+        <ul style="margin: 0.625rem 0 0.625rem 1.25rem;">
+          <li><strong>1～2週目</strong>：彼女を探す。いなければ評価上げ</li>
+          <li><strong>1-3は絶対に休む</strong>：体力を回復して次の依頼に備える</li>
+          <li><strong>1-4は体力満タンでスタート</strong>：序盤の依頼をしっかり成功させる</li>
+          <li>優先度：<strong>彼女 ＞ SR複数 ＞ SR単体</strong></li>
+          <li><strong>4週目以降</strong>：評価上げ、ゲージ回収、依頼回収、彼女追いを全て並行</li>
+          <li>無駄な訓練を踏まず、メイン能力に集中</li>
+        </ul>
+      </div>
+
+      <div class="card" style="border-left: 3px solid var(--info); margin-bottom: 0.75rem;">
+        <h3 style="color: var(--info);">セクション2～3（中盤）：依頼ゲージを回しつつ育成</h3>
+        <p><strong>目標：</strong>依頼ゲージを貯めつつ依頼をクリア</p>
+        <ul style="margin: 0.625rem 0 0.625rem 1.25rem;">
+          <li>基本サイクル「訓練→ゲージ溜め→依頼→ボーナス活用」を繰り返す</li>
+          <li>大成功でのスペシャルタッグボーナスを最大限活用</li>
+          <li>仲間の救援ランクを着実に上げる</li>
+          <li>デートで体力回復しながらゲージ40pt獲得</li>
+        </ul>
+      </div>
+
+      <div class="card" style="border-left: 3px solid var(--danger);">
+        <h3 style="color: var(--danger);">セクション4（終盤）：逆算が命</h3>
+        <p><strong>目標：</strong>残りターンから逆算して依頼を進める</p>
+        <ul style="margin: 0.625rem 0 0.625rem 1.25rem;">
+          <li><strong>11月2週～3週：「遊ぶ」で決起会発動→ゲージ100%に！</strong></li>
+          <li><strong>11-3で決起会 → 12-3で最後の依頼 → 12-4～1-1は練習で追い込み</strong></li>
+          <li>依頼は残り3ターンで不可能になる</li>
+          <li><strong>12月3週終了後はデートと依頼が両方不可能に</strong></li>
+          <li>彼女キャラの5回目デートは必ず済ませる</li>
+          <li>世界選手権予選・準決勝・決勝に備える</li>
+        </ul>
+        <div class="highlight highlight-warning">
+          <strong>注意：12月4週以降のタイムリミット</strong>
+          デートと依頼は12月4週で完全に締め切られます。彼女キャラの最終デート（5回目）を忘れると、重要なステータスポイントやスキルのコツを取り逃します。セクション4に入ったら残り行動回数を必ず逆算してください。
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 8. Events -->
+  <div class="section" id="events">
+    <h2 class="section-title"><span class="num">8</span>重要イベントタイムライン</h2>
+    <div class="card">
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="time">6月4週目終了時</div>
+          <div class="event">
+            <strong>英雄祭</strong><br>
+            彼女がいると体力回復量アップ＋ステータスアップのボーナスあり。彼女の有無で効果が大きく変わる重要イベント。
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="time">7月1週目開始前</div>
+          <div class="event">
+            <strong>世界樹祭</strong><br>
+            選択肢で体力回復が可能。体力管理の重要なポイント。
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="time">9月4週目終了時</div>
+          <div class="event">
+            <strong>感謝祭</strong><br>
+            彼女がいれば体力回復＋訓練ポイント獲得。ここでも彼女キャラの恩恵が大きい。
+          </div>
+        </div>
+        <div class="timeline-item critical">
+          <div class="time">11月2週～12月3週</div>
+          <div class="event">
+            <strong>決起会イベント（超重要！）</strong><br>
+            この期間中に「遊ぶ」を選ぶと発生。<strong>初回のみ依頼ゲージが100%（MAX）まで一気に貯まる</strong>＋通常時より体力が大幅回復。ゲージが足りない時の切り札。
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="time">11月4週</div>
+          <div class="event"><strong>世界選手権予選</strong></div>
+        </div>
+        <div class="timeline-item critical">
+          <div class="time">12月3週終了後</div>
+          <div class="event">
+            <strong>デート＆依頼が不可能に</strong><br>
+            ここまでに彼女5回目デートと残り依頼を完了させること！
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="time">1月1週</div>
+          <div class="event"><strong>世界選手権 準決勝</strong></div>
+        </div>
+        <div class="timeline-item">
+          <div class="time">1月2週</div>
+          <div class="event"><strong>世界選手権 決勝</strong></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 9. Characters -->
+  <div class="section" id="characters">
+    <h2 class="section-title"><span class="num">9</span>必須キャラクター詳細</h2>
+
+    <div class="highlight highlight-important">
+      <strong>彼女キャラは絶対に採用しよう！</strong>
+      通常の休息では体力が回復するだけですが、デートでは<strong>体力回復＋依頼ゲージ約35pt獲得＋経験点</strong>を同時に得られます。彼女なしでの育成は大幅に効率が下がるため、必ず編成してください。
+    </div>
+    <div class="highlight highlight-info">
+      <strong>エシュナ未所持でも完全に詰むわけではない</strong>
+      <ul style="margin-left: 1.25rem; margin-top: 0.25rem;">
+        <li><strong>エシュナはお試しで3回使える</strong>：まずはお試し枠で感触を確かめよう</li>
+        <li><strong>マリセア（旧彼女）でも依頼ポイントはもらえる</strong>：エシュナほどではないが、一応戦える</li>
+        <li><strong>PRリーチャスが代替候補</strong>：上限解放50でエシュナ相当の性能（金特以外）</li>
+      </ul>
+    </div>
+
+    <div class="char-grid">
+      <!-- エシュナ -->
+      <div class="char-card">
+        <div class="char-card-header girlfriend">
+          <img src="images/cropped/eshuna.png" alt="エシュナ" class="char-img">
+          <span>エシュナ（彼女枠）-- 最優先</span>
+        </div>
+        <div class="char-card-body">
+          <div class="stat">
+            <span class="stat-label">レアリティ</span>
+            <span class="stat-value">SR</span>
+          </div>
+          <div class="stat">
+            <span class="stat-label">役割</span>
+            <span class="stat-value">彼女キャラ</span>
+          </div>
+          <div class="stat">
+            <span class="stat-label">特徴</span>
+            <span class="stat-value">マリセアより練習性能が高い</span>
+          </div>
+          <div class="stat">
+            <span class="stat-label">適性</span>
+            <span class="stat-value">全ジョブ・全編成で必須</span>
+          </div>
+          <div class="gold-skill">
+            <div class="label">金特</div>
+            <div class="name">不朽の意志</div>
+            <div class="effect">通常攻撃耐性 28%アップ</div>
+          </div>
+          <div class="highlight highlight-tip" style="margin-bottom: 0;">
+            <strong>評価</strong>
+            タテレスキュアアカデミーの彼女枠として<strong>どんな編成でも使う</strong>キャラ。最優先で確保すべき。デートによる依頼ゲージ稼ぎが育成効率を大幅に左右する。お試しで3回使えるので、未所持でもまず体験してみよう。
+          </div>
+        </div>
+      </div>
+
+      <!-- リタリー -->
+      <div class="char-card">
+        <div class="char-card-header tank">
+          <img src="images/cropped/ritari.png" alt="リタリー" class="char-img">
+          <span>リタリー（重戦士向け）</span>
+        </div>
+        <div class="char-card-body">
+          <div class="stat">
+            <span class="stat-label">レアリティ</span>
+            <span class="stat-value">SR</span>
+          </div>
+          <div class="stat">
+            <span class="stat-label">得意訓練</span>
+            <span class="stat-value">メンタル</span>
+          </div>
+          <div class="stat">
+            <span class="stat-label">特徴</span>
+            <span class="stat-value">物理職初のメンタル持ち</span>
+          </div>
+          <div class="stat">
+            <span class="stat-label">習得条件</span>
+            <span class="stat-value">耐久力D（50）以上</span>
+          </div>
+          <div class="gold-skill">
+            <div class="label">金特</div>
+            <div class="name">無頼漢の教え</div>
+            <div class="effect">物理攻撃耐性 8%アップ</div>
+          </div>
+          <div class="highlight highlight-info" style="margin-bottom: 0;">
+            <strong>評価</strong>
+            重戦士（物理タンク）育成において<strong>メンタル枠として非常に優秀</strong>。重戦士を育成するなら優先確保推奨。
+          </div>
+        </div>
+      </div>
+
+      <!-- トレアーティ -->
+      <div class="char-card">
+        <div class="char-card-header healer">
+          <img src="images/cropped/toreati.png" alt="トレアーティ" class="char-img">
+          <span>トレアーティ（僧侶向け）</span>
+        </div>
+        <div class="char-card-body">
+          <div class="stat">
+            <span class="stat-label">レアリティ</span>
+            <span class="stat-value">SR</span>
+          </div>
+          <div class="stat">
+            <span class="stat-label">得意訓練</span>
+            <span class="stat-value">知能</span>
+          </div>
+          <div class="stat">
+            <span class="stat-label">特徴</span>
+            <span class="stat-value">回復性能を底上げ＋攻撃性能も微強化</span>
+          </div>
+          <div class="stat">
+            <span class="stat-label">習得条件</span>
+            <span class="stat-value">魔力D（50）以上</span>
+          </div>
+          <div class="gold-skill">
+            <div class="label">金特</div>
+            <div class="name">治癒の教え</div>
+            <div class="effect">HP回復倍率10%UP / 物理攻撃1%UP / 魔法攻撃1%UP</div>
+          </div>
+          <div class="highlight highlight-info" style="margin-bottom: 0;">
+            <strong>評価</strong>
+            僧侶（ヒーラー）育成では<strong>最優先枠</strong>。回復性能の底上げに加え、攻撃性能も微強化できる万能キャラ。
+          </div>
+        </div>
+      </div>
+
+      <!-- ミヤビ -->
+      <div class="char-card">
+        <div class="char-card-header archer">
+          <img src="images/cropped/miyabi.png" alt="ミヤビ" class="char-img">
+          <span>ミヤビ（弓使い・平常心）</span>
+        </div>
+        <div class="char-card-body">
+          <div class="stat">
+            <span class="stat-label">レアリティ</span>
+            <span class="stat-value">SR</span>
+          </div>
+          <div class="stat">
+            <span class="stat-label">得意訓練</span>
+            <span class="stat-value">敏捷</span>
+          </div>
+          <div class="stat">
+            <span class="stat-label">特徴</span>
+            <span class="stat-value">上方修正済みの金特を持つ</span>
+          </div>
+          <div class="gold-skill">
+            <div class="label">金特</div>
+            <div class="name">平常心</div>
+            <div class="effect">回復時にも効果発生（上方修正済み）</div>
+          </div>
+          <div class="highlight highlight-tip" style="margin-bottom: 0;">
+            <strong>評価</strong>
+            上方修正により僧侶・タンク育成で価値が上昇。敏捷練習枠として重戦士デッキにも採用される。
+          </div>
+        </div>
+      </div>
+
+      <!-- マリセア -->
+      <div class="char-card">
+        <div class="char-card-header alt-gf">
+          <img src="images/cropped/marisea.png" alt="マリセア" class="char-img">
+          <span>マリセア（旧彼女・代替候補）</span>
+        </div>
+        <div class="char-card-body">
+          <div class="stat">
+            <span class="stat-label">レアリティ</span>
+            <span class="stat-value">SR</span>
+          </div>
+          <div class="stat">
+            <span class="stat-label">役割</span>
+            <span class="stat-value">旧彼女キャラ</span>
+          </div>
+          <div class="stat">
+            <span class="stat-label">特徴</span>
+            <span class="stat-value">デートで依頼ポイント獲得可能</span>
+          </div>
+          <div class="highlight highlight-info" style="margin-bottom: 0;">
+            <strong>評価</strong>
+            エシュナほどではないが依頼ポイントを稼げる。マリセアとのデートでも依頼ポイントはもらえるため、エシュナ未所持時の代替として機能する。金特は重戦士向き。エシュナ＋マリセアの<strong>二股運用</strong>の可能性も示唆されている。
+          </div>
+        </div>
+      </div>
+
+      <!-- リーチャス -->
+      <div class="char-card">
+        <div class="char-card-header substitute">
+          <img src="images/cropped/richasu.png" alt="リーチャス" class="char-img">
+          <span>リーチャス（エシュナ代替）</span>
+        </div>
+        <div class="char-card-body">
+          <div class="stat">
+            <span class="stat-label">レアリティ</span>
+            <span class="stat-value">PR / R</span>
+          </div>
+          <div class="stat">
+            <span class="stat-label">役割</span>
+            <span class="stat-value">エシュナの代替候補</span>
+          </div>
+          <div class="stat">
+            <span class="stat-label">特徴</span>
+            <span class="stat-value">上限解放50でエシュナ相当</span>
+          </div>
+          <div class="highlight highlight-tip" style="margin-bottom: 0;">
+            <strong>評価</strong>
+            PRリーチャスは<strong>上限解放50でエシュナと同等かそれ以上の性能</strong>（金特以外）。PRのダイジョーブ像が残っていれば有力な代替候補。エシュナが引けなかった場合の救済策として検討する価値あり。
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <h3 style="margin-top: 1.25rem; color: var(--primary); font-size: 1.05rem;">PR・R特効キャラ</h3>
+    <div class="card">
+      <div class="table-responsive">
+        <table>
+          <tr>
+            <th>キャラ名</th>
+            <th>レアリティ</th>
+            <th>備考</th>
+          </tr>
+          <tr><td>リベリヤ</td><td>PR / R</td><td>タテレスキュア特効</td></tr>
+          <tr class="row-highlight"><td><strong>リーチャス</strong></td><td>PR / R</td><td><strong>エシュナの代替候補！</strong>（詳細上記）</td></tr>
+          <tr><td>コレマース</td><td>PR / R</td><td>タテレスキュア特効</td></tr>
+          <tr><td>ロース</td><td>PR / R</td><td>タテレスキュア特効</td></tr>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- 10. Decks -->
+  <div class="section" id="decks">
+    <h2 class="section-title"><span class="num">10</span>おすすめデッキ編成</h2>
+
+    <div class="deck-box">
+      <h4>重戦士デッキ（火属性）</h4>
+      <div class="deck-slots">
+        <div class="deck-slot">
+          <div class="name">ライズ</div>
+          <div class="role">筋力練習</div>
+        </div>
+        <div class="deck-slot">
+          <div class="name">リート</div>
+          <div class="role">筋力練習</div>
+        </div>
+        <div class="deck-slot">
+          <div class="name">ドミー</div>
+          <div class="role">敏捷練習</div>
+        </div>
+        <div class="deck-slot">
+          <div class="name">ミヤビ</div>
+          <div class="role">敏捷練習</div>
+        </div>
+        <div class="deck-slot deck-slot-tank">
+          <div class="name">リタリー</div>
+          <div class="role">メンタル練習</div>
+        </div>
+        <div class="deck-slot deck-slot-gf">
+          <div class="name">エシュナ</div>
+          <div class="role">彼女枠</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="deck-box">
+      <h4>僧侶デッキ（火属性）</h4>
+      <div class="deck-slots">
+        <div class="deck-slot">
+          <div class="name">バトラニー</div>
+          <div class="role">持久力練習</div>
+        </div>
+        <div class="deck-slot">
+          <div class="name">オードウェル</div>
+          <div class="role">知能練習</div>
+        </div>
+        <div class="deck-slot deck-slot-healer">
+          <div class="name">トレアーティ</div>
+          <div class="role">知能練習</div>
+        </div>
+        <div class="deck-slot">
+          <div class="name">イコス</div>
+          <div class="role">メンタル練習</div>
+        </div>
+        <div class="deck-slot deck-slot-tank">
+          <div class="name">リタリー</div>
+          <div class="role">メンタル練習</div>
+        </div>
+        <div class="deck-slot deck-slot-gf">
+          <div class="name">エシュナ</div>
+          <div class="role">彼女枠</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>デッキ編成のコツ</h3>
+      <ul style="margin-left: 1.25rem;">
+        <li><strong>彼女キャラ（エシュナ）は全デッキで必須</strong> -- デートによる体力回復＋ゲージ稼ぎが育成の根幹</li>
+        <li><strong>得意訓練を固める</strong> -- バラけさせるよりも複数キャラの得意訓練を重ねてタッグ発生率を上げる</li>
+        <li><strong>メイン経験点練習にイベキャラ2人配置</strong> -- ダブルタッグで爆発的な経験点獲得を狙う</li>
+        <li><strong>ジョブのバランスを意識</strong> -- 依頼に出した仲間は休憩に入るため、代替メンバーを確保</li>
+        <li><strong>属性は火・風・水から選択</strong> -- 目的に応じて柔軟に対応可能</li>
+        <li><strong>タッグボーナス90%以上のキャラ</strong>を優先的に採用</li>
+        <li><strong>持ち込みは筋力・瞬発・精神で一気に稼げる構成</strong>が理想</li>
+        <li>僧侶のデッキは<strong>魔法使いデッキの構成をベースに微調整</strong>でほぼ対応可能</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h3>持ち込みアイテム推奨</h3>
+      <div class="highlight highlight-tip">
+        <strong>おすすめアイテム</strong>
+        <ul style="margin-left: 1.25rem; margin-top: 0.25rem;">
+          <li><strong>守護の石（水色）</strong> -- ケガ確率が来るまで踏み倒して体力を底まで使える！最重要アイテム</li>
+          <li><strong>なかよしリング</strong> -- タッグが踏みにくい序盤で初期値が高いのが大きなメリット</li>
+          <li><strong>訓練指南書【上巻・下巻】</strong> -- 依頼なしで訓練レベルが上がるのは大きい</li>
+          <li><strong>クッキーチケット</strong> -- 月頭に体力回復。金イベ後のケガ確率0%と1%の差が精神的に大きい</li>
+        </ul>
+        <p style="margin-top: 0.5rem;">「天才の入学届」は貴重品のため温存推奨。</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>タンク育成のステータス優先度</h3>
+      <div class="table-responsive">
+        <table>
+          <tr>
+            <th>優先度</th>
+            <th>ステータス</th>
+            <th>目標値</th>
+            <th>備考</th>
+          </tr>
+          <tr>
+            <td><strong>最優先</strong></td>
+            <td>HP（生命力）</td>
+            <td>S90</td>
+            <td>被ダメージ吸収能力が格段に向上</td>
+          </tr>
+          <tr>
+            <td>次点</td>
+            <td>耐久力</td>
+            <td>D50</td>
+            <td>金特・青特の邪魔をしない範囲で</td>
+          </tr>
+          <tr>
+            <td>次点</td>
+            <td>精神力</td>
+            <td>D50</td>
+            <td>同上</td>
+          </tr>
+          <tr>
+            <td>不要</td>
+            <td>攻撃力</td>
+            <td>-</td>
+            <td>タンクは攻撃力不要</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- 11. Gold Skills -->
+  <div class="section" id="gold">
+    <h2 class="section-title"><span class="num">11</span>シナリオ金特・重要スキル</h2>
+    <div class="card">
+      <h3>シナリオ金特の獲得条件</h3>
+      <div class="highlight highlight-important">
+        <strong>仲間全員の救援ランクをシルバー以上</strong> かつ <strong>難易度★5依頼に成功・大成功</strong>で獲得可能。序盤からランク上げを意識した立ち回りが必要です。
+      </div>
+
+      <h3>キャラ別金特一覧</h3>
+      <div class="table-responsive">
+        <table>
+          <tr>
+            <th>キャラ</th>
+            <th>金特名</th>
+            <th>効果</th>
+            <th>習得条件</th>
+          </tr>
+          <tr>
+            <td>エシュナ</td>
+            <td><strong style="color: var(--accent-dark);">不朽の意志</strong></td>
+            <td>通常攻撃耐性 28%UP</td>
+            <td>彼女イベント進行</td>
+          </tr>
+          <tr>
+            <td>リタリー</td>
+            <td><strong style="color: var(--accent-dark);">無頼漢の教え</strong></td>
+            <td>物理攻撃耐性 8%UP</td>
+            <td>耐久力D（50）以上</td>
+          </tr>
+          <tr>
+            <td>トレアーティ</td>
+            <td><strong style="color: var(--accent-dark);">治癒の教え</strong></td>
+            <td>HP回復倍率10%UP / 物理1%UP / 魔法1%UP</td>
+            <td>魔力D（50）以上</td>
+          </tr>
+          <tr>
+            <td>ミヤビ</td>
+            <td><strong style="color: var(--accent-dark);">平常心</strong></td>
+            <td>回復時にも効果発生（上方修正済み）</td>
+            <td>ミヤビのイベント</td>
+          </tr>
+          <tr class="row-highlight">
+            <td><strong>シナリオ金特</strong></td>
+            <td><strong style="color: var(--danger);">癒しの恩寵</strong>（僧侶用）</td>
+            <td>僧侶のシナリオ固有金特と推定（効果は調査中）</td>
+            <td>★5依頼成功 + 全員シルバー以上</td>
+          </tr>
+          <tr class="row-highlight">
+            <td><strong>シナリオ金特</strong></td>
+            <td><strong style="color: var(--danger);">救援者</strong>（共通）</td>
+            <td>調査中</td>
+            <td>★5依頼成功 + 全員シルバー以上</td>
+          </tr>
+        </table>
+      </div>
+
+      <h3>タンク育成で重要なスキル</h3>
+      <div class="table-responsive">
+        <table>
+          <tr>
+            <th>カテゴリ</th>
+            <th>スキル名</th>
+            <th>効果</th>
+          </tr>
+          <tr>
+            <td><strong style="color: var(--accent-dark);">金特（必須級）</strong></td>
+            <td>加護</td>
+            <td>全体攻撃ダメージを軽減</td>
+          </tr>
+          <tr>
+            <td><strong style="color: var(--accent-dark);">金特（必須級）</strong></td>
+            <td>慈愛の祈り</td>
+            <td>高い防御効果</td>
+          </tr>
+          <tr>
+            <td><strong style="color: var(--accent-dark);">金特（必須級）</strong></td>
+            <td>タフネス</td>
+            <td>生存力大幅UP</td>
+          </tr>
+          <tr>
+            <td>青特（推奨）</td>
+            <td>物理防御 / 体幹 / 忍耐</td>
+            <td>防御性能向上</td>
+          </tr>
+          <tr>
+            <td>青特（推奨）</td>
+            <td>生存本能 / 柔軟な体</td>
+            <td>耐久性能向上</td>
+          </tr>
+          <tr>
+            <td>青特（推奨）</td>
+            <td>護身の構え / 見切り / 意思</td>
+            <td>被ダメージ軽減</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- 12. Tips -->
+  <div class="section" id="tips">
+    <h2 class="section-title"><span class="num">12</span>攻略Tips まとめ</h2>
+    <div class="card">
+      <div class="highlight highlight-tip">
+        <strong>Tip 1: 彼女キャラは絶対編成</strong>
+        エシュナとの訓練で15pt、デートで約35ptのゲージ獲得。無関係キャラの1ptとは次元が違う。彼女なしは大幅な効率低下。
+      </div>
+      <div class="highlight highlight-tip">
+        <strong>Tip 2: 「依頼→2週自由行動」のループが最大のコツ</strong>
+        依頼成功後2ターンはタッグ練習の効率がアップ。この2ターンで強力なタッグを踏み、次の依頼に備えてゲージを溜める。このサイクルを意識すると経験点が爆発的に伸びる。
+      </div>
+      <div class="highlight highlight-tip">
+        <strong>Tip 3: コツイベント率アップのイベキャラを編成</strong>
+        コツイベント発生でも依頼を獲得できる。イベキャラのイベントボーナスを確認し、コツイベント率アップ持ちを積極的に採用しよう。
+      </div>
+      <div class="highlight highlight-tip">
+        <strong>Tip 4: 依頼のキャラ選びは「汎用性」で判断</strong>
+        例：マモル（生命C/パワーA/器用さC/耐久C）は4つの依頼条件で使えるが、ライズ（生命D/耐久C）は2つだけ。汎用性の低いキャラから先に使い、高いキャラは柔軟に温存。
+      </div>
+      <div class="highlight highlight-tip">
+        <strong>Tip 5: 特効キャラはクールダウン半分（5T vs 10T）</strong>
+        学園キャラは5ターンで再出撃可能。非学園は10ターン待ち。ローテーションを組む際は特効キャラ優先で。
+      </div>
+      <div class="highlight highlight-tip">
+        <strong>Tip 6: 決起会は最強の保険</strong>
+        11月2週～12月3週に「遊ぶ」で発動。初回のみゲージがMAXに。★20到達が厳しい時の切り札として温存。
+      </div>
+      <div class="highlight highlight-tip">
+        <strong>Tip 7: 不要な依頼は削除できる</strong>
+        依頼画面の左下から低ランク依頼を削除可能。枠を空けて高ランク依頼を優先的に受けよう。
+      </div>
+      <div class="highlight highlight-tip">
+        <strong>Tip 8: モブの方が強い場合がある</strong>
+        依頼の成功率はキャラのステータス合計で決まる。イベキャラのステが低い場合、該当ステが高いモブを使う方が成功率が高い。ただしモブにも得意分野があるので使い分けが重要。
+      </div>
+      <div class="highlight highlight-tip">
+        <strong>Tip 9: 12月3週が最終期限</strong>
+        これ以降はデートも依頼も不可。5回目のデート・残り依頼は逆算して早めに消化。
+      </div>
+      <div class="highlight highlight-tip">
+        <strong>Tip 10: 経験点のバラつきに注意</strong>
+        依頼達成で不要なステにも経験点が入り、関係ない練習に引きずられることもある。生命S/魔力Sに届かない「器用貧乏」を避けるため、主力ステに集中した立ち回りを心がけよう。
+      </div>
+      <div class="highlight highlight-tip">
+        <strong>Tip 11: ストーリー全スキップ方法</strong>
+        サクセス画面<strong>右上のスキップ設定を「すべて」</strong>にすれば、未読も既読もすべてのストーリーをスキップできます。周回効率を上げたい場合に必須の設定。
+      </div>
+      <div class="highlight highlight-tip">
+        <strong>Tip 12: セクション1から丁寧に</strong>
+        ゼリウスのような後半の爆発ギミックがないため、序盤の積み重ねがそのまま最終評価に直結します。1-3は絶対に休む、1-4は体力満タンでスタートすることを徹底しましょう。
+      </div>
+    </div>
+  </div>
+
+  <!-- 13. Gacha -->
+  <div class="section" id="gacha">
+    <h2 class="section-title"><span class="num">13</span>タテレスキュアデビューガチャ</h2>
+    <div class="card">
+      <div class="table-responsive">
+        <table>
+          <tr>
+            <th>項目</th>
+            <th>内容</th>
+          </tr>
+          <tr>
+            <td>開催期間</td>
+            <td><strong>4月8日（水）メンテ終了後 ～ 6月5日（金）14:00</strong></td>
+          </tr>
+          <tr>
+            <td>ピックアップ</td>
+            <td>エシュナ / リタリー / トレアーティ</td>
+          </tr>
+          <tr>
+            <td>天井</td>
+            <td>100回でSRイベキャラ選択引換券</td>
+          </tr>
+        </table>
+      </div>
+
+      <h3>引くべきか？</h3>
+      <div class="highlight highlight-important">
+        <strong>タテレスキュアで遊ぶなら引くべき！</strong>
+        3キャラ全員がタテレスアカデミーの育成において重要な役割を担っています。可能な限り<strong>3人の素体確保</strong>が推奨されます。
+      </div>
+
+      <h3>確保の優先順位</h3>
+      <ol class="priority-list">
+        <li><strong>エシュナ（最優先）</strong> -- 全編成で使う彼女枠。これなしでは始まらない</li>
+        <li><strong>リタリー</strong> -- 重戦士育成なら必須。物理職初のメンタル持ち</li>
+        <li><strong>トレアーティ</strong> -- 僧侶育成なら必須。回復性能の底上げに不可欠</li>
+      </ol>
+    </div>
+  </div>
+
+</div>
+
+<!-- Footer -->
+<footer class="footer">
+  <p>本ページの情報はAIが自動的にインターネット上の情報を収集・整理して作成したものです。</p>
+  <p>情報の正確性は保証されません。最新情報は公式サイトや各攻略サイトをご確認ください。</p>
+  <div class="copyright">
+    Game contents: &copy; Konami Digital Entertainment
+  </div>
+</footer>
+
+<!-- Back to Top -->
+<button class="back-to-top" id="backToTop" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="トップに戻る">
+  <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M10 3L3 12h4v5h6v-5h4L10 3z" fill="currentColor"/></svg>
+</button>
+
+<script>
+  // Back-to-top button visibility
+  (function(){
+    var btn = document.getElementById('backToTop');
+    window.addEventListener('scroll', function(){
+      if(window.scrollY > 400) {
+        btn.classList.add('visible');
+      } else {
+        btn.classList.remove('visible');
+      }
+    });
+  })();
+</script>
+
+</body>
+</html>
