@@ -846,6 +846,14 @@
     .container { max-width: 780px; padding: 2.5rem 2rem; }
     .hero h1 { font-size: 2.4rem; }
   }
+
+  /* ===== ADS ===== */
+  .ad-pc { display: none; }
+  .ad-sp { display: block; }
+  @media (min-width: 768px) {
+    .ad-pc { display: block; }
+    .ad-sp { display: none; }
+  }
 </style>
 </head>
 <body>
@@ -1977,6 +1985,18 @@
     </div>
   </div>
 
+</div>
+
+<!-- 広告 -->
+<div style="text-align:center; margin: 2rem auto; max-width: 720px; padding: 0 1rem;">
+  <div class="ad-sp">
+    <!-- admax スマホ -->
+    <script src="https://adm.shinobi.jp/s/7e59e8e3fbd8f7b76660c15fc35dfc61"></script>
+  </div>
+  <div class="ad-pc">
+    <!-- admax PC -->
+    <script src="https://adm.shinobi.jp/s/159daa8e061a17416eba137fe5e9e5fc"></script>
+  </div>
 </div>
 
 <!-- Footer -->
