@@ -231,30 +231,29 @@
 
   /* ===== TABLE ===== */
   .table-responsive {
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
     margin: 1rem 0;
     border-radius: var(--radius-sm);
     border: 1px solid var(--border);
+    overflow: hidden;
   }
   table {
     width: 100%;
     border-collapse: collapse;
-    font-size: 0.875rem;
-    min-width: 400px;
+    font-size: 0.85rem;
   }
   th {
     background: var(--info-bg);
     color: var(--primary);
-    padding: 0.625rem 0.75rem;
+    padding: 0.5rem 0.5rem;
     text-align: left;
     font-weight: 600;
     border-bottom: 2px solid var(--primary);
-    white-space: nowrap;
+    font-size: 0.8rem;
   }
   td {
-    padding: 0.625rem 0.75rem;
+    padding: 0.5rem 0.5rem;
     border-bottom: 1px solid var(--border);
+    word-break: break-word;
   }
   tr:nth-child(even) { background: #f8fafc; }
   tr:hover { background: var(--info-bg); }
